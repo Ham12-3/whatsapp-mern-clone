@@ -1,10 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
+import SideBar from "./SideBar";
+import Chat from "./Chat";
 
 function App() {
   return (
     <div className="app">
-      <h1>Let's build whatsapp</h1>
+      <div className="app__body">
+        <SideBar />
+        <Chat />
+      </div>
     </div>
   );
 }
