@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Chat.css";
 import { Avatar, IconButton } from "@mui/material";
 import {
@@ -8,7 +8,20 @@ import {
   MoreVert,
   SearchOutlined,
 } from "@mui/icons-material";
+import axios from "./axios";
 const Chat = ({ messages }) => {
+  const [input, setInput] = useState("");
+  const sendMessage = async (e) => {
+    e.preventDefault();
+    await axios.post("/messages/new", {
+      message: input,
+      name: "DEmo APP",
+      timestamp: "Just now",
+      received: true,
+    });
+
+    setInput("");
+  };
   return (
     <div className="chat">
       <div className="chat__header">
@@ -33,7 +46,7 @@ const Chat = ({ messages }) => {
       <div className="chat__body">
         {messages.map((message) => (
           <p
-            className={`chat__message ${message.received && "chat__receiver"}`}
+            className={`chat__message ${message.received && "chat__reciever"}`}
           >
             <span className="chat__name">{message.name}</span>
             {message.message}
@@ -75,8 +88,16 @@ const Chat = ({ messages }) => {
       <div className="chat__footer">
         <InsertEmoticon />
         <form action="">
-          <input type="text" placeholder="Type a message" />
-          <button type="submit"> Send a message</button>
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            type="text"
+            placeholder="Type a message"
+          />
+          <button onClick={sendMessage} type="submit">
+            {" "}
+            Send a message
+          </button>
         </form>
         <Mic />
       </div>

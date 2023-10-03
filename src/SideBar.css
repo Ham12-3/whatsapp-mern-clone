@@ -46,6 +46,7 @@
     padding: 10px;
 }
 .sidebar__searchContainer > input {
+    outline-width: 0;
     border: none;
     margin-left: 10px;
 }
