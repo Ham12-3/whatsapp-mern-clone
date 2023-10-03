@@ -51,15 +51,29 @@ const Chat = () => {
           This is a message
           <span className="chat__timestamp">{new Date().toUTCString()}</span>
         </p>
-
-        <div className="chat__footer">
-          <InsertEmoticon />
-          <form action="">
-            <input type="text" placeholder="Type a message" />
-            <button type="submit"> Send a message</button>
-          </form>
-          <Mic />
-        </div>
+        <p className="chat__message">
+          <span className="chat__name">Abdulhamid</span>
+          This is a message
+          <span className="chat__timestamp">{new Date().toUTCString()}</span>
+        </p>
+        <p className="chat__message chat__reciever">
+          <span className="chat__name">Abdulhamid</span>
+          This is a message
+          <span className="chat__timestamp">{new Date().toUTCString()}</span>
+        </p>
+        <p className="chat__message">
+          <span className="chat__name">Abdulhamid</span>
+          This is a message
+          <span className="chat__timestamp">{new Date().toUTCString()}</span>
+        </p>
+      </div>
+      <div className="chat__footer">
+        <InsertEmoticon />
+        <form action="">
+          <input type="text" placeholder="Type a message" />
+          <button type="submit"> Send a message</button>
+        </form>
+        <Mic />
       </div>
     </div>
   );
